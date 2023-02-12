@@ -1,0 +1,19 @@
+<ion-content>
+  <div class="container">
+    <div align="center">
+      <img class = "ion-padding" src="assets/images/logo.png">
+    </div>
+      <ion-item class="ion-margin-top">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]= "email" type="email"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="tryLogin()" required color="success" expand="block" shape="round">Send</ion-button>
+        </ion-col>
+      </ion-row>
+      <div>
+          Please provide the username or email address that you used when you signed up for your account
+      </div>
+      </div>
+</ion-content>

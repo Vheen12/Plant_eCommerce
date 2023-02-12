@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-title align="center">
+          My Cart
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf= "this.cart.length == 0">
+      <h3 style="color: green; text-align: center;">
+      <div>
+        <ion-icon size="large" name="cart-outline"></ion-icon>
+      </div>
+      <ion-text>Cart is empty</ion-text>
+    </h3>
+  </div>
+
+  <div *ngIf= "this.cart.length > 0">
+  <ion-list *ngFor="let product of cart" lines="none">
+    <ion-item *ngIf= "product.customer == this.user">
+      <img [src]= product.img alt="">
+      <ion-item-group class="side">
+        <ion-label>
+          <h2>{{product.plantName}}</h2>
+          <p color="primary"> ₱{{(product.amount * product.price)}}.00 </p>
+        </ion-label>
+        <div>
+          <ion-buttons slot="end">
+            <ion-button (click)="removeProduct(product)"><ion-icon color="success" name="trash"></ion-icon></ion-button>
+            <ion-button (click)="decreaseCartItem(product)"><ion-icon color="success" name="remove-circle"></ion-icon></ion-button>
+            <ion-text>{{product.amount}}</ion-text>
+            <ion-button (click)="increaseCartItem(product)"><ion-icon color="success" name="add-circle"></ion-icon></ion-button>
+          </ion-buttons>
+        </div>
+      </ion-item-group>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="none">
+    <ion-item>
+      <h6 style="color: green;">Total Amount</h6>
+    </ion-item>
+    <div align="center">
+      <p>₱{{ getTotal()}}.00</p>
+    </div>
+    <ion-item>
+      <ion-label color="success">Payment Method</ion-label>
+    </ion-item>
+    <ion-radio-group allowEmptySelection= 'true' name="payment" (ionChange)="changeRadio($event)">
+      <ion-item>
+        <ion-label>GCash</ion-label>
+        <ion-icon slot="start" name="card-outline" color="success"></ion-icon>
+        <ion-radio color="success" value='card2'></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label >Cash on Delivery</ion-label>
+        <ion-icon slot="start" name="cash-outline" color="success"></ion-icon>
+        <ion-radio color="success" value='cash'></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-item>
+      <ion-label color="success" position="floating">Add Contact:</ion-label>
+      <ion-input [(ngModel)]="contact" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="success" position="floating">Add Address:</ion-label>
+      <ion-input [(ngModel)]="address" type="text"></ion-input>
+    </ion-item>
+    <ion-button (click)="order()" expand="block" shape="round" color="success" class="ion-margin">
+      <ion-label> Order Now</ion-label>
+    </ion-button>
+  </ion-list>
+  </div>
+</ion-content>

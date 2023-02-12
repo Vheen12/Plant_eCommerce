@@ -1,0 +1,57 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div align="center">
+    <img size="small" src="assets/images/logo.png">
+  </div>
+   <ion-list lines="full" class="container">
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input [(ngModel)] = "username" type="text" required></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Gender</ion-label>
+      <ion-select interface="popover" [(ngModel)] = "gender" required>
+        <ion-select-option value="male"> Male</ion-select-option>
+        <ion-select-option value="female"> Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)] = "email" type="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)] = "password" type="password" id="showPassword" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input [(ngModel)] = "confirm_pass" type="password"  id="showPassword2" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-checkbox (click)="toggleShow()"></ion-checkbox>
+      <ion-label style="font-size:small">Show Password</ion-label>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="addUser()"  [disabled] = "disabledButton" color= "success" expand="full" shape="round">
+          Register
+        </ion-button>
+      </ion-col>
+    </ion-row>
+   </ion-list>
+</ion-content>
+

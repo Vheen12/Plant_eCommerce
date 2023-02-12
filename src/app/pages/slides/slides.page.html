@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <img src="assets/images/slide1.png">
+      <h2>Welcome To <span>Plantastics!</span></h2>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/slide2.png">
+      <p>Customize your homes with these beautiful plants</p>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/slide3.png">
+      <p>Don't know what plant to buy? No problem, There are varieties you can pick on</p>
+      <ion-button color="success" (click)="presentLoading()">Click to continue...</ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

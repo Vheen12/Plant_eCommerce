@@ -1,0 +1,35 @@
+ <ion-content [fullscreen] = "true">
+   <div class="content">
+   <div align="center">
+     <img class = "ion-padding" src="assets/images/logo.png">
+   </div>
+   <section>
+     <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)] = "email" type="text" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+       <ion-label position="floating">Password</ion-label>
+       <ion-input [(ngModel)] = "password" type= "password" id="inputPassword" name="password" required></ion-input>
+       <ion-icon slot="end" id="iconchange" name="eye-off"(click)="toggleShow()"></ion-icon>
+     </ion-item>
+     <ion-item lines="none" (click)="openForgotPassword()">
+          <p style="font-size:small; color: blue">Forgot Password</p>
+     </ion-item>
+      <ion-row>
+
+        <ion-col align="center">
+          <ion-button type="button" [disabled]= "disabledButton" shape="round" (click)="tryLogin()" color= "success" expand="block">
+            Log in
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="button-text">
+        <p> If you do not have an account, click <span (click)="openRegister()">Register Now</span></p>
+      </div>
+     </form>
+   </section>
+   </div>
+</ion-content>

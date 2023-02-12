@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Plant Information
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines = "none">
+    <ion-card color="light">
+      <ion-card-content>
+        <img [src] = img>
+      </ion-card-content>
+    </ion-card>
+    <ion-item-group>
+      <ion-grid>
+        <ion-row>
+          <ion-button (click)="addToCart()" color="success" shape="round">
+            <ion-label>Cart  </ion-label>
+            <ion-icon slot="start" [name]= "mycart ? 'cart' : 'cart-outline'"></ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-item-group>
+    <ion-item-divider>
+      <ion-label>
+        Name
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>{{name}}</ion-label>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>
+        Price
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>₱{{price}}.00</ion-label>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>
+        Description
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <p class="description" readonly>
+        {{description}}
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>

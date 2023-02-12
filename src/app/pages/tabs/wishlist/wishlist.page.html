@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-title>
+          My Orders
+      </ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf= "this.orders.length == 0">
+      <h3 style="color: green; text-align: center;">
+      <div>
+        <ion-icon size="large" name="cart-outline"></ion-icon>
+      </div>
+      <ion-text>There are no Orders</ion-text>
+    </h3>
+  </div>
+
+  <div *ngIf= "this.orders.length > 0">
+  <ion-list *ngFor="let product of orders" lines="none">
+    <ion-item *ngIf= "product.customer == this.user">
+      <img [src]= product.img alt="">
+      <ion-item-group class="side">
+        <ion-label>
+          <h2>{{product.plantName}}</h2>
+          <p>Number of Items: {{product.amount}}</p>
+          <p color="primary">Price: ₱{{(product.amount * product.price)}}.00 </p>
+          <p>{{product.plantID}}</p>
+        </ion-label>
+        <div>
+          <ion-buttons slot="end">
+            <ion-button (click)="removeProduct(product)"><ion-icon color="success" name="trash"></ion-icon>
+              <small style="color: red;">Cancel Order</small>
+            </ion-button>
+            </ion-buttons>
+        </div>
+      </ion-item-group>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label color="success">Total Amount:</ion-label>
+        <p>₱{{ getTotal()}}.00</p>
+    </ion-item>
+    <ion-item>
+      <ion-label color="success"> Payment Method:</ion-label>
+      {{payment}}
+    </ion-item>
+    <ion-item>
+      <ion-label color="success"> Contact Number:</ion-label>
+      {{contact}}
+    </ion-item>
+    <ion-item>
+      <ion-label color="success">Delivery Address:</ion-label>
+      {{address}}
+    </ion-item>
+  </ion-list>
+  </div>
+</ion-content>

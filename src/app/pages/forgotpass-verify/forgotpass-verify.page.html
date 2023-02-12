@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="container">
+    <div align="center">
+      <img class = "ion-padding" src="assets/images/logo.png">
+    </div>
+    <small>{{this.email}} Add new password to verify your account</small>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label position="floating">New Password</ion-label>
+        <ion-input [(ngModel)]= "newPass" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input [(ngModel)]= "confirmPass" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="confirmPassChange()" color="success" expand="block" shape="round">Confirm Changes</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

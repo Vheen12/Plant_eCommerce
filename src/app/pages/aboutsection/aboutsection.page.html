@@ -1,0 +1,24 @@
+<ion-content class="ion-padding">
+  <div class="container">
+    <div align="center">
+      <img class = "ion-padding" src="assets/images/logo.png">
+      <h2 style="color: green;"> <strong>Our Team</strong></h2>
+    </div>
+    <p>Plantastic is a company of selling varities of plants, Which consists of plantitos and plantitas that group together to
+      share to you amazing plants that makes your home beautiful and echo-friendly
+    </p>
+  </div>
+  <ion-list lines="none" *ngFor="let name of profiles">
+    <ion-item >
+      <img [src] = "name.img">
+    </ion-item>
+    <ion-item>
+      <ion-label size="large" color="success"><strong>{{name.role}}</strong></ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar align="center" color="success">
+    plantastic@yahoo.com
+  </ion-toolbar>
+</ion-footer>

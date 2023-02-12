@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{username}}</ion-title>
+  </ion-toolbar>
+    <div class="popover">
+      <ion-searchbar></ion-searchbar>
+    </div>
+</ion-header>
+
+<ion-content>
+  <!-- Refresher -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- All Items -->
+  <ion-grid class="ion-margin-top">
+    <ion-item lines="none" color="light">
+      <ion-label class="title">Plants For Sale</ion-label>
+      <ion-button slot="end" size="small" shape="round" color="success" (click)="openPlants('plants')">View all</ion-button>
+    </ion-item>
+    <ion-row>
+      <ion-slides [options]="slideOpts">
+        <ion-slide *ngFor="let plant of plants">
+          <ion-card class="featured"[routerLink]="['/', 'tabs', 'items', plant.plantID]">
+            <ion-card-header>
+              <img [src]="plant.img" />
+            </ion-card-header>
+            <ion-card-content color="success">
+              <ion-item lines="none">
+                <ion-label>
+                  {{plant.name}}
+                  <p><ion-text class="price" slot="end" color="primary"><b>₱{{plant.price}}.00</b></ion-text></p>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Popular Items -->
+  <ion-grid class="ion-margin-top">
+    <ion-item lines="none" color="light">
+      <ion-label class="title">Popular Plants</ion-label>
+      <ion-button slot="end" size="small" shape="round" color="success" (click)="openPlants('popular')">View all</ion-button>
+    </ion-item>
+
+    <ion-row>
+      <ion-slides [options]="slideOpts1">
+        <ion-slide *ngFor="let plant of popularItems">
+          <ion-card class="featured" [routerLink]="['/', 'tabs', 'items', plant.plantID]">
+            <ion-card-header>
+              <img [src]="plant.img" />
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>
+                  {{plant.name}}
+                  <p><ion-text class="price" slot="end" color="primary"><b>₱{{plant.price}}.00</b></ion-text></p>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Featured Items -->
+  <ion-grid class="ion-margin-top">
+    <ion-item lines="none" color="light">
+      <ion-label class="title">Featured Plants</ion-label>
+      <ion-button slot="end" size="small" shape="round" color="success" (click)="openPlants('featured')">View all</ion-button>
+    </ion-item>
+
+    <ion-row>
+      <ion-slides [options]="slideOpts1">
+        <ion-slide *ngFor= "let plant of featuredItems">
+          <ion-card class="featured" [routerLink]="['/', 'tabs', 'items', plant.plantID]">
+            <ion-card-header>
+              <img [src]="plant.img" />
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>
+                  {{plant.name}}
+                  <p><ion-text class="price" slot="end" color="primary"><b>₱{{plant.price}}.00</b></ion-text></p>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

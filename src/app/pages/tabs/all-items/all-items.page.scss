@@ -1,0 +1,25 @@
+.price {
+  color:#284417;
+  align-self: end;
+  margin-top: 11px;
+}
+
+ion-card {
+  height: 35vh;
+  width: 90%;
+  border-radius: 10px;
+  ion-card-content {
+      ion-label, p {
+          font-weight: bold;
+          font-size: 12px;
+          color: var(--ion-color-dark);
+      }
+  }
+  ion-card-header {
+    background-color: rgb(124, 243, 128) ;
+      img {
+          height: 20vh;
+          width: 100%;
+      }
+  }
+}

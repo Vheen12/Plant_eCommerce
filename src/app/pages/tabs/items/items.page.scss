@@ -1,0 +1,19 @@
+.buttons{
+    font-size: 12px;
+}
+img{
+    width: 100%;
+}
+.description{
+    padding: 5%;
+    text-align: justify;
+}
+ion-item{
+  --color: green;
+}
+ion-item-divider{
+  ion-label{
+    --color: Black;
+    font-weight: bolder;
+  }
+}

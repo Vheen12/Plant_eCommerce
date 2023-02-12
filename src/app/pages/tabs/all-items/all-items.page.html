@@ -1,0 +1,48 @@
+<ion-header color="light">
+  <ion-toolbar color="success">
+    <ion-title>
+      Plants List
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="popover">
+    <ion-searchbar ></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <!-- Refresher -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let plant of this.item">
+        <ion-card [routerLink]="['/', 'tabs', 'items', plant.plantID]">
+          <ion-card-header class="ion-align-items-center">
+            <img [src]="plant.img" />
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>
+                {{plant.name}}
+                <p><ion-text class="price" slot="end"><b>₱{{plant.price}}.00</b></ion-text></p>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner = "dots"
+      loadingText = "Loading more items">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

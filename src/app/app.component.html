@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-menu menuId="main-menu" content-id="main" [swipeGesture]="false">
+    <img src="assets/images/logo.png" />
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink = "feedback">
+            <ion-icon color="success" name="help-circle-outline" slot="start"></ion-icon>
+            <ion-label>Feedback</ion-label>
+          </ion-item>
+          <ion-item routerLink = "aboutsection">
+            <ion-icon color="success" name="person-outline" slot="start"></ion-icon>
+            <ion-label>About Developers</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon color="success" name="log-out-outline" slot="start"></ion-icon>
+            <ion-label (click)="processLogout()">Log Out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
