@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "Likhaan",
+  "appId": "com.plantastic.app",
+  "appName": "Plantastic",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

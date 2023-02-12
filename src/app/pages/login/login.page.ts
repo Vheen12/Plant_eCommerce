@@ -11,8 +11,8 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage{
 
-  email: string = "";
-  password: string = "";
+  email = '';
+  password = '';
   disabledButton: boolean;
 
   constructor(
@@ -30,14 +30,14 @@ export class LoginPage{
   }
 
   toggleShow(){
-    let x : any = document.getElementById("inputPassword");
-    let y : any = document.getElementById("iconchange");
-    if(x.type == 'password' && y.name == 'eye-off'){
-      x.type = "text"
-      y.name = "eye"
+    const x: any = document.getElementById('inputPassword');
+    const y: any = document.getElementById('iconchange');
+    if(x.type === 'password' && y.name === 'eye-off'){
+      x.type = 'text';
+      y.name = 'eye';
     }else{
-      x.type = "password"
-      y.name = "eye-off"
+      x.type = 'password';
+      y.name = 'eye-off';
     }
   }
 
@@ -59,10 +59,10 @@ export class LoginPage{
   }
 
   async tryLogin(){
-    if(this.email == ""){
-      this.presentToast('Email Required','danger')
-    }else if(this.password == ""){
-      this.presentToast('Password Required','danger')
+    if(this.email === ''){
+      this.presentToast('Email Required','danger');
+    }else if(this.password === ''){
+      this.presentToast('Password Required','danger');
     }else{
       this.disabledButton = true;
       const loader = await this.loadingCtrl.create({
@@ -72,14 +72,14 @@ export class LoginPage{
       loader.present();
 
         return new Promise(resolve =>{
-          let body = {
+          const body = {
             action: 'process_login',
             email: this.email,
             password: this.password
-          }
+          };
 
-          this.accessProvider.postData(body, 'process_api.php').subscribe((res:any) =>{
-            if(res.success == true){
+          this.accessProvider.postData(body, 'process_api.php').subscribe((res: any) =>{
+            if(res.success === true){
               loader.dismiss();
               this.disabledButton = false;
               this.storage.set('storage_xxx',res.result); // create storage session

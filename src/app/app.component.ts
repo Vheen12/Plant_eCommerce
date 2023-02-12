@@ -40,7 +40,7 @@ export class AppComponent {
   async processLogout(){
     this.storage.clear();
     this.presentLoading();
-    this.navCtrl.navigateRoot('login')
+    this.navCtrl.navigateRoot('login');
   }
 
   async presentLoading() {

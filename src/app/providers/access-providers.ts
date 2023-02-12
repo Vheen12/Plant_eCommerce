@@ -1,29 +1,29 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-// import { stringify } from '@angular/compiler/src/util';
 
 @Injectable()
 export class AccessProviders {
     //url backend api json
-    server: string = 'http://localhost/Plantastic/login/';
+    server = 'http://localhost/Plantastic/login/';
 
-    constructor (
+    constructor(
         public http: HttpClient
     ) { }
 
-    postData(body, file){
-        let headers = new HttpHeaders({
+    postData(body, file) {
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json; charset = UTF-8'
         });
 
-        let options = {
-            headers: headers
-        }
+        const options = {
+            headers
+        };
 
-        return this.http.post(this.server + file, JSON.stringify(body), options)
-        .timeout(59000) //59 seconds timeout
-        .map(res => res);
+        return this.http.post(this.server + file, JSON.stringify(body), options);
+            // .timeout(59000) //59 seconds timeout
+            // .map(res => res);
     }
 }
