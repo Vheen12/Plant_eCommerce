@@ -1,0 +1,7 @@
+{
+  "name": "Likhaan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
